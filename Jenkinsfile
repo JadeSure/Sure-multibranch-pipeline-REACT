@@ -6,6 +6,8 @@ pipeline {
         }
     }
     environment {
+        // operate it in docker root level
+        HOME = '.'
         CI = 'true'
     }
     stages {
