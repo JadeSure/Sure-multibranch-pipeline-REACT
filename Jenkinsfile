@@ -51,25 +51,29 @@
 
 
 // version 2
-pipeline {
-    agent any
-    environment {
-        RELEASE='20.04'
-    }
-    stages {
-        stage('Build') {
-            agent any
-            environment {
-                LOG_LEVEL='INFO'
-            }
-            steps {
-                echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
-            }
-        }
-        stage('Test') {
-            steps {
-                echo "Testing. I can see release ${RELEASE}, but not log level ${LOG_LEVEL}"
-            }
-        }
-    }
-}
+// pipeline {
+//     agent any
+//     environment {
+//         RELEASE='20.04'
+//     }
+//     stages {
+//         stage('Build') {
+//             agent any
+//             // 有scope的environment variable
+//             environment {
+//                 LOG_LEVEL='INFO'
+//             }
+//             steps {
+//                 echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
+//             }
+//         }
+//         stage('Test') {
+//             steps {
+//                 // 此环境变量无法被访问
+//                 echo "Testing. I can see release ${RELEASE}, but not log level ${LOG_LEVEL}"
+//             }
+//         }
+//     }
+// }
+
+// version 3
